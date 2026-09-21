@@ -1,0 +1,9 @@
+AniKoto Seanime provider
+Copyright 2026 grayrat2026
+
+This product includes software ported and adapted from the Yuzono anime
+extensions project (https://github.com/yuzono/anime-extensions), licensed
+under the Apache License, Version 2.0.
+
+The modified implementation is identified in provider.ts and replaces the
+upstream Android/OkHttp/Jsoup integration with Seanime runtime APIs.
