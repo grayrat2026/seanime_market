@@ -1,0 +1,13 @@
+Seanime Extension Marketplace
+Copyright 2026 grayrat2026
+
+The AniKoto provider includes a modified port of code and extraction logic
+from the Yuzono anime extensions project:
+https://github.com/yuzono/anime-extensions
+
+Yuzono anime extensions are licensed under the Apache License, Version 2.0.
+See providers/anikoto/NOTICE for modification details.
+
+External manifest links in plugins.json do not copy those extensions. Their
+respective authors, copyright notices, and licenses remain with their upstream
+repositories.

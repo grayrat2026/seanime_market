@@ -1,0 +1,24 @@
+name: Validate marketplace
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-json:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate JSON files
+        run: jq empty plugins.json providers/*/manifest.json
+      - name: Check unique marketplace IDs
+        run: test "$(jq -r '.[].id' plugins.json | sort | uniq -d | wc -l)" -eq 0
+      - name: Check local manifests and payloads
+        run: |
+          test -s providers/anikoto/manifest.json
+          test -s providers/anikoto/provider.ts
+          test "$(jq -r '.[0].manifestURI' plugins.json)" = "https://raw.githubusercontent.com/grayrat2026/seanime_market/main/providers/anikoto/manifest.json"
